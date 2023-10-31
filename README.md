@@ -1,2 +1,3 @@
 # DataStructure
- c\c++\DataStructure
+陈越版--》数据结构第二版学习
+实现课本案例及书中提供的代码（c\c++）
