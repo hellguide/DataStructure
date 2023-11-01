@@ -1,0 +1,25 @@
+# c语言
+## 获取程序运行时间工具
+调用time.h头文件
+![](i/7790e906-63b4-4c7c-8f93-d10c8e48269e.png)
+```
+#include "time.h"
+#include "stdio.h"
+
+/**clock_t是clock（）函数返回的变量类型**/
+clock_t start, end;
+double costTime;
+
+int main() {
+    
+    start = clock();
+    printf("hello word!\n");
+    end = clock();
+    /*CLK_TCK是机器时钟每秒所走的时钟打点数/*/
+    /*某些IDE下面也叫 CLOCKS_PER_SEC*/
+    costTime = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("clcok cost time(s): %lf\n",costTime);
+    return 0;
+
+}
+```

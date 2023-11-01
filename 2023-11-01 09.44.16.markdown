@@ -1,0 +1,43 @@
+求最大子列和
+
+```
+暴力循环
+#include "time.h"
+#include "stdio.h"
+
+/**求最大子列和**/
+int TisSum,MaxSum = 0;
+int i,j,k;
+int MaxSubSeqSum(int a[],int n);
+
+int MaxSubSeqSum(int a[],int n){
+    /**循环遍历从0~n：左边界**/
+    for(i=0;i<n;i++){
+        printf("第i列数组最大子列求和%d\n",i);
+        /**循环数组右边界*/
+        for(j=i;j<n;j++){
+            /*n=4
+             *当j=i=0,a[0]+a[1]+a[2]+a[3]+a[4] = sum
+             *当j=i=1,a[1]+a[2]+a[3]+a[4] = sum
+             *当j=i=2,a[2]+a[3]+a[4] = sum
+             *当j=i=3,a[3]+a[4] = sum
+             *既：i第一次遍历为数组左界限  j为数组右界限
+             */
+            TisSum = a[j] + TisSum;
+            if(TisSum>MaxSum){
+                MaxSum = TisSum;
+            }
+            printf("TisSum数组最大子列求和%d\n",TisSum);
+            printf("MaxSum数组最大子列求和%d\n",MaxSum);
+            TisSum = 0;
+        }
+    }
+    return MaxSum;
+}
+
+int main() {
+    int a[6] ={-2,11,-4,13,-5,-2};
+    MaxSubSeqSum(&a[6], 6);
+}
+
+```
